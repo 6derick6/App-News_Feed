@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Button, ScrollView, ImageBackground, StyleSheet } from 'react-native';
+import { Text, View, Button, ScrollView, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //import * as firebase from 'firebase';
@@ -9,10 +9,19 @@ function HomeScreen({navigation}) {
     <View style={{ flex: 1}}>
 
      <ScrollView horizontal contentContainerStyle={{height:300, width:'200%'}} style={{flex:1}}>
+
       <ImageBackground source={{uri: 'https://picsum.photos/200/300'}} style={styles.image}>
-        <View style={{position:'absolute',left:0,top:0,width:'100%',height:'100%',backgroundColor:'rgba(0,0,0,0.5)'}}></View>
-        <Text style={{fontSize:29, color:'white'}}>A minha Notícia!</Text>
+        <TouchableOpacity onPress={()=>navigation.navigate('Noticia')} style={{width:'100%',height:'100%',backgroundColor:'rgba(0,0,0,0.5)',justifyContent:'flex-end'}}>
+          <Text style={{fontSize:27, color:'white'}}>A minha notícia</Text>
+        </TouchableOpacity>
       </ImageBackground>
+
+      <ImageBackground source={{uri: 'https://picsum.photos/200/300'}} style={styles.image}>
+        <TouchableOpacity style={{width:'100%',height:'100%',backgroundColor:'rgba(0,0,0,0.5)',justifyContent:'flex-end'}}>
+          <Text style={{fontSize:27, color:'white'}}>A minha notícia</Text>
+        </TouchableOpacity>
+      </ImageBackground>
+
      </ScrollView>
 
     </View>
@@ -45,6 +54,6 @@ const styles = StyleSheet.create({
     flex:1,
     resizeMode:'cover',
     justifyContent:'flex-end',
-    width:'50%'
+    width:'100%'
   }
 });
