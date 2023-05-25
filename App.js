@@ -11,7 +11,7 @@ function HomeScreen({navigation}) {
      <ScrollView horizontal contentContainerStyle={{height:300, width:'200%'}} style={{flex:1}}>
 
       <ImageBackground source={{uri: 'https://picsum.photos/200/300'}} style={styles.image}>
-        <TouchableOpacity onPress={()=>navigation.navigate('Noticia')} style={{width:'100%',height:'100%',backgroundColor:'rgba(0,0,0,0.5)',justifyContent:'flex-end'}}>
+        <TouchableOpacity onPress={()=>navigation.navigate('Noticia',{titulo:'Um titulo de exemplo',conteudo:'minha noticia de testes!'})} style={{width:'100%',height:'100%',backgroundColor:'rgba(0,0,0,0.5)',justifyContent:'flex-end'}}>
           <Text style={{fontSize:27, color:'white'}}>A minha notícia</Text>
         </TouchableOpacity>
       </ImageBackground>
@@ -28,10 +28,11 @@ function HomeScreen({navigation}) {
   );
 }
 
-function NoticiaScreen({navigation}) {
+function NoticiaScreen({route,navigation}) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-
+      <Text>{route.params.titulo}</Text>
+      <Text>{route.params.conteudo}</Text>
     </View>
   );
 }
