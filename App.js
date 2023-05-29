@@ -3,6 +3,7 @@ import { Text, View, Button, ScrollView, ImageBackground, StyleSheet, TouchableO
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //import * as firebase from 'firebase';
+import db from './firebase.js';
 
 function HomeScreen({navigation}) {
   return (
